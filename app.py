@@ -23,7 +23,7 @@ METRICS_PATH = os.path.join(BASE_DIR, "model_metrics.json")
 # Page Config
 # ═══════════════════════════════════════════════
 st.set_page_config(
-    page_title="Blood Cell AI Analyzer(M.R.Sakeerc(BSc Hons in MLS))",
+    page_title="Blood Cell AI Analyzer by M.R.Sakeer BSc Hons in MLS)",
     page_icon="🩸",
     layout="wide",
     initial_sidebar_state="expanded"
