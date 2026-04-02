@@ -1,0 +1,16 @@
+{
+  "model_name": "Custom CNN",
+  "test_accuracy": 0.868114173412323,
+  "mobilenet_test_accuracy": 0.6482,
+  "custom_cnn_accuracy": 0.868114173412323,
+  "classes": [
+    "EOSINOPHIL",
+    "LYMPHOCYTE",
+    "MONOCYTE",
+    "NEUTROPHIL"
+  ],
+  "img_size": [
+    224,
+    224
+  ]
+}
