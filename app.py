@@ -1,7 +1,7 @@
 """
 Blood Cell Classification & Leukemia Alert System
 Streamlit Web Application
-BSc (Hons) Medical Laboratory Science - Gold Badge Capstone
+M.R. Sakeer BSc (Hons) Medical Laboratory Science - Gold Badge Capstone
 """
 
 import streamlit as st
