@@ -12,10 +12,9 @@ import time
 from PIL import Image
 
 # ═══════════════════════════════════════════════
-# IMPORTANT: Set your project folder path here
+# Paths (relative - works on Streamlit Cloud)
 # ═══════════════════════════════════════════════
-BASE_DIR = "C:\\Users\\Sakeer Sha\\Desktop\\BloodCell_CNN_Training\\BloodCell_Project"
-
+BASE_DIR     = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH   = os.path.join(BASE_DIR, "blood_cell_classifier.h5")
 INDICES_PATH = os.path.join(BASE_DIR, "class_indices.json")
 METRICS_PATH = os.path.join(BASE_DIR, "model_metrics.json")
@@ -126,8 +125,6 @@ def load_model_and_assets():
         from tensorflow.keras.layers import BatchNormalization as _BatchNormalization
         from tensorflow.keras.layers import DepthwiseConv2D as _DepthwiseConv2D
 
-        # ── Compat wrappers: strip unknown kwargs ──────────────────────────
-
         class CompatInputLayer(_InputLayer):
             def __init__(self, **kwargs):
                 kwargs.pop('optional', None)
@@ -164,12 +161,8 @@ def load_model_and_assets():
             'DepthwiseConv2D':    CompatDepthwiseConv2D,
         }
 
-        # Debug info in sidebar
-        st.sidebar.write("Looking for model at:")
-        st.sidebar.code(MODEL_PATH)
-        st.sidebar.write("File exists:", os.path.exists(MODEL_PATH))
-
         if not os.path.exists(MODEL_PATH):
+            st.sidebar.error(f"Model not found at: {MODEL_PATH}")
             return None, None, {}, False
 
         model = tf.keras.models.load_model(
@@ -211,14 +204,12 @@ def predict(model, image, idx_to_class):
     top_class    = idx_to_class[top_idx]
     top_conf     = float(probs[top_idx])
     all_probs    = {idx_to_class[i]: float(p) for i, p in enumerate(probs)}
-    sorted_probs = dict(sorted(all_probs.items(), key=lambda x: x[1], reverse=True))
-    is_uncertain = top_conf < 0.40
-    blast_flag   = (top_class == "MONOCYTE" and top_conf > 0.85) or is_uncertain
+    needs_review = top_conf < 0.75
     return {
         "predicted_class": top_class,
         "confidence":      top_conf,
-        "all_probs":       sorted_probs,
-        "needs_review":    blast_flag or is_uncertain
+        "all_probs":       all_probs,
+        "needs_review":    needs_review
     }
 
 
@@ -307,7 +298,7 @@ with col_result:
         """, unsafe_allow_html=True)
 
     elif not model_loaded:
-        st.error("Model not loaded. Check the path in app.py line 16.")
+        st.error("Model not loaded. Check that all model files are in the repository.")
 
     elif uploaded_file and analyze_btn:
         with st.spinner("Analyzing blood cell..."):

@@ -1,7 +1,4 @@
-# Blood Cell AI Analyzer — Requirements
-# Install with: pip install -r requirements.txt
-
 streamlit
-tensorflow==2.18.0
+tensorflow-cpu
 numpy
 pillow
