@@ -218,7 +218,7 @@ def predict(model, image, idx_to_class):
 # ═══════════════════════════════════════════════
 st.markdown("""
 <div class="main-header">
-    <h1>🩸 Blood Cell AI Analyzer</h1>
+    <h1>🩸 Blood Cell AI Analyzer By M.R. Sakeer</h1>
     <p>Automated WBC Classification & Abnormal Cell Detection System</p>
     <p><small>Powered by Custom CNN Deep Learning | For Screening Purposes Only</small></p>
 </div>
