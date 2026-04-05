@@ -198,7 +198,6 @@ Steps covered:
 
 **🥇 ** — Deep Learning (CNN Image Classification)
 
-Difficulty: ⭐⭐⭐⭐⭐ Expert
 
 ---
 
