@@ -1,6 +1,6 @@
 # 🩸 Blood Cell Classifier — Deep Learning Capstone Project
 
-> **Gold Badge | BSc (Hons) Medical Laboratory Science**  
+> **M.R. Sakeer | BSc (Hons) Medical Laboratory Science|CMLE**  
 > Automated White Blood Cell (WBC) classification using Convolutional Neural Networks
 
 [![Streamlit App](https://img.shields.io/badge/Live%20Demo-Streamlit-FF4B4B?style=for-the-badge&logo=streamlit)](https://blood-cell-classifier-kiqgclritqwub3tb4mrjs3.streamlit.app/)
@@ -194,9 +194,9 @@ Steps covered:
 
 ---
 
-## 🏆 Badge Track
+## 🏆 
 
-**🥇 GOLD BADGE** — Deep Learning (CNN Image Classification)
+**🥇 ** — Deep Learning (CNN Image Classification)
 
 Difficulty: ⭐⭐⭐⭐⭐ Expert
 
